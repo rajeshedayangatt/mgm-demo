@@ -2,6 +2,7 @@ import React , {useState} from 'react';
 import './App.css';
 import Canvas from './Canvas';
 import { CanvasCubemap } from './CanvasCubemap';
+import Container from '@mui/material/Container';
 
 function App() {
 
@@ -14,14 +15,14 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Container maxWidth="lg">
 
       {
         showcubemap && showcubemap ? <CanvasCubemap /> : <Canvas  changecube={handleCubemapChange}/>
       }
       
-    </div>
-  );
+      </Container>
+    );
 }
 
 export default App;

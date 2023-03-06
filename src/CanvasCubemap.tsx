@@ -37,7 +37,7 @@ export const CanvasCubemap = () => {
 
         renderer = new WebGLRenderer({ antialias: true, powerPreference: "high-performance"});
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        // renderer.setSize( window.innerWidth, window.innerHeight );
         let canvascontainer = document.getElementById('canvas-container');
         if (canvascontainer === null) {
             return false;
@@ -45,7 +45,10 @@ export const CanvasCubemap = () => {
             canvascontainer.appendChild(renderer.domElement);
         }
 
+        if(canvascontainer) {
+            renderer.setSize(canvascontainer.clientWidth,window.innerHeight);
 
+        }
 
         camera = new PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
         scene = new Scene();

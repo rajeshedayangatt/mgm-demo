@@ -65,7 +65,13 @@ export default class Canvas extends React.Component<myProps> {
 
         this.scene = new Scene();        
         this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        // this.renderer.setSize(window.innerWidth, window.innerHeight);
+
+        if(canvascontainer) {
+            this.renderer.setSize(canvascontainer.clientWidth,window.innerHeight);
+
+        }
+
         this.renderer.render(this.scene, this.camera);
         this.renderer.setAnimationLoop(() => this.animate()); // uncomment if you want to use the animation loop
 
@@ -251,7 +257,10 @@ export default class Canvas extends React.Component<myProps> {
 
         return(
             <div>
-                <div id="canvas-container"></div>
+              
+                    <div className="heading"><h1>SELECT A ROOM</h1></div>
+                    <div id="canvas-container"></div>
+              
             </div>
         )
     }
